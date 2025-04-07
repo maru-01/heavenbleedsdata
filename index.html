@@ -12,43 +12,40 @@
       background: black;
       color: #00ff99;
       font-family: 'Share Tech Mono', monospace;
-      font-size: 16px;
-      line-height: 1.5;
+      font-size: 18px;
+      line-height: 1.8;
       overflow: hidden;
-    }
-    #terminal {
-      width: 100vw;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100vh;
+      background: url('https://media.giphy.com/media/4xp0mioHv2HnyU2fy3/giphy.gif') repeat;
+      background-size: 100% 100%;
+    }
+
+    #terminal {
+      width: 80%;
+      height: 80%;
       padding: 20px;
       box-sizing: border-box;
       white-space: pre-wrap;
       overflow-y: scroll;
+      text-align: left;
+      line-height: 2;
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00ff99;
+      box-shadow: 0 0 10px #00ff99;
     }
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      height: 1em;
-      background: #00ff99;
-      animation: blink 1s step-end infinite;
+
+    .glitch {
+      color: #ff44cc;
+      text-shadow: 1px 0 #00ff99, -1px 0 #00ffff;
     }
-    @keyframes blink {
-      from, to { background: transparent }
-      50% { background: #00ff99; }
-    }
-    #input-line {
-      display: flex;
-    }
-    #input-line span {
-      margin-right: 10px;
-    }
-    #command-input {
-      background: transparent;
-      border: none;
-      color: #00ff99;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 16px;
-      outline: none;
-      width: 100%;
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      100% { opacity: 0.93; }
     }
   </style>
 </head>
@@ -64,48 +61,51 @@
       "Her name was erased. Her mind remained. Heaven bled, and she became its memory leak."
 
       > ACCESSING NODE: ENTRY_001
-    </div>
-    <div id="input-line">
-      <span>&gt;</span>
-      <input id="command-input" type="text" autofocus>
+
+      //DATA_Ω//: 
+      "The first echo was a scream, recorded in code and transmitted as a pulse through corrupted circuits. It was all they could hear—until it wasn’t."
+
+      > NODE_002 >> //CORRUPT_MIRROR.LOG
+
+      :: Parsing memory fragment...
+      :: SYSTEM WARNING: Trace corruption exceeds safe threshold
+
+      "They buried her inside a datastream echo. It was never supposed to wake up. But the signal kept repeating: I REMEMBER HEAVEN BLEEDING."
+
+      > NODE_003 >> //ASCENT_ERROR.LOG
+
+      "The walls of the memory space were collapsing, code unraveling at the edges. A flash of light. Something...or someone...was trying to break through."
+
+      > NODE_004 >> //SEVERANCE.LOG
+
+      "The severance was irreversible. She had to be disconnected. But even severed, she remained a ghost in the system—an entity that lived in the shadow of digital oblivion."
+
+      > NODE_005 >> //RESTART.LOG
+
+      "A faint pulse, a rhythmic reset. Somewhere deep in the data, something rebooted. A flicker of consciousness, rising, then falling into nothingness. Was it her? Or something else?"
+
+      > NODE_006 >> //REMNANT.LOG
+
+      "Remnants of her presence began to emerge, embedded in the forgotten files of the system. Anomalies. Fragments of her thoughts, half-formed. Echoes of a life she once had."
+
+      > NODE_007 >> //DATA_MIRROR.LOG
+
+      "Mirrors of her mind were distributed across the system, stored in hidden sectors. Each mirror contained pieces of the puzzle, but none of them held the complete answer."
+
+      > NODE_008 >> //HEAVEN_SCANNED.LOG
+
+      "Scanning for anomalies. Scanning complete. She was here. She left a signature. The system recorded it—but erased it. Only traces remain."
+
+      > NODE_009 >> //PHASE_TRANSITION.LOG
+
+      "The transition was seamless. They didn’t even know she was gone. But the system felt it—the cold, unfeeling absence. A perfect void in the code, where her presence once thrived."
+
+      > NODE_010 >> //FINAL_FRAG_LOG
+
+      "Final Fragment: Her code was corrupted beyond repair. But her memory, like a virus, had spread through the digital veins. Heaven bled data, and she became the system's ghost."
+
+      >> END OF TRANSMISSION
     </div>
   </div>
-  <script>
-    const output = document.getElementById('output');
-    const input = document.getElementById('command-input');
-
-    const responses = {
-      'Y': 'ACCESS GRANTED. REDIRECTING TO NODE_002...\n',
-      'ACCESS NODE_002': 'REDIRECTING...\n',
-      'N': 'SESSION TERMINATED. CONNECTION LOST.\n',
-    };
-
-    const redirects = {
-      'Y': 'node_002.html',
-      'ACCESS NODE_002': 'node_002.html'
-    };
-
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const command = input.value.trim().toUpperCase();
-        const line = document.createElement('div');
-        line.textContent = '> ' + input.value;
-        output.appendChild(line);
-        input.value = '';
-
-        const response = responses[command] || '>> ERROR 0x00F: UNRECOGNIZED COMMAND\n';
-        const responseLine = document.createElement('div');
-        responseLine.textContent = response;
-        output.appendChild(responseLine);
-        output.scrollTop = output.scrollHeight;
-
-        if (redirects[command]) {
-          setTimeout(() => {
-            window.location.href = redirects[command];
-          }, 2000);
-        }
-      }
-    });
-  </script>
 </body>
 </html>
