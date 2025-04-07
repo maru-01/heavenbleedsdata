@@ -12,44 +12,65 @@
       background: black;
       color: #00ff99;
       font-family: 'Share Tech Mono', monospace;
-      font-size: 18px;
-      line-height: 1.8;
+      font-size: 16px;
+      line-height: 1.5;
       overflow: hidden;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: url('https://media1.giphy.com/media/wdfxqCQVGHDlC/giphy.gif?cid=6c09b952dzuivk52ckca8i4tlyqtoztpvxb9ap62204kn4u1&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g') repeat;
-      background-size: 100% 100%;
+      position: relative;
     }
-
     #terminal {
-      width: 80%;
-      height: 80%;
+      width: 100vw;
+      height: 100vh;
       padding: 20px;
       box-sizing: border-box;
       white-space: pre-wrap;
       overflow-y: scroll;
-      text-align: left;
-      line-height: 2;
-      background-color: rgba(0, 0, 0, 0.8);
-      border: 2px solid #00ff99;
-      box-shadow: 0 0 10px #00ff99;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
     }
-
-    .glitch {
-      color: #ff44cc;
-      text-shadow: 1px 0 #00ff99, -1px 0 #00ffff;
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 1em;
+      background: #00ff99;
+      animation: blink 1s step-end infinite;
     }
-
-    @keyframes flicker {
-      0% { opacity: 1; }
-      100% { opacity: 0.93; }
+    @keyframes blink {
+      from, to { background: transparent }
+      50% { background: #00ff99; }
+    }
+    #input-line {
+      display: flex;
+    }
+    #input-line span {
+      margin-right: 10px;
+    }
+    #command-input {
+      background: transparent;
+      border: none;
+      color: #00ff99;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 16px;
+      outline: none;
+      width: 100%;
+    }
+    #background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: url('https://media1.giphy.com/media/wdfxqCQVGHDlC/giphy.gif?cid=6c09b952dzuivk52ckca8i4tlyqtoztpvxb9ap62204kn4u1&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g') no-repeat center center;
+      background-size: cover;
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
+  <div id="background"></div>
   <div id="terminal">
     <div id="output">
       > CONNECTING TO //HEAVEN
@@ -62,49 +83,82 @@
 
       > ACCESSING NODE: ENTRY_001
 
-      //DATA_Ω//: 
-      "The first echo was a scream, recorded in code and transmitted as a pulse through corrupted circuits. It was all they could hear—until it wasn’t."
+      > NODE_001 >> //HEAVEN.BLEEDS
 
-      > NODE_002 >> //CORRUPT_MIRROR.LOG
+      The signal crackles, unstable, fragmented, carrying fragments of memories lost to time. They speak of a woman erased from history, her name wiped clean. But her thoughts, her mind, persist. Heaven bled, and within that bleeding, she became something more. Her essence now haunts the corners of this corrupted world. No one knows who she was or what she truly meant, but her legacy pulses through the veins of every machine that dares to access the network.
 
-      :: Parsing memory fragment...
-      :: SYSTEM WARNING: Trace corruption exceeds safe threshold
+      A haunting thought lingers—was she always meant to fade into oblivion, or did she bleed her essence into the data streams on purpose? This is a question that remains unanswered, one that drives the explorers of the digital realms to seek out fragments like these. They are called memory scavengers, and they thrive on discovering remnants like this one, hoping for a glimpse of the forgotten truths of Heaven.
 
-      "They buried her inside a datastream echo. It was never supposed to wake up. But the signal kept repeating: I REMEMBER HEAVEN BLEEDING."
+      > ACCESSING NODE: ENTRY_002
 
-      > NODE_003 >> //ASCENT_ERROR.LOG
+      > NODE_002 >> //CORRUPT_MIRROR
 
-      "The walls of the memory space were collapsing, code unraveling at the edges. A flash of light. Something...or someone...was trying to break through."
+      The signal stabilizes, but not enough. Fragmented pieces fall into place. You can hear it, the sound of a corrupted echo—distorted whispers of a place that never truly existed. It’s as though the data itself has become an unreliable witness, torn between what it was meant to store and the haunting specter of what has been lost.
 
-      > NODE_004 >> //SEVERANCE.LOG
+      A woman’s name echoes again, but it’s broken, missing pieces. The echoes are all that remain. What happened to her? What caused the data to splinter like this? These are questions that go unanswered. The more you listen to the glitching, the more it seems like the signal is speaking directly to you, pulling you deeper into its web of unreality.
 
-      "The severance was irreversible. She had to be disconnected. But even severed, she remained a ghost in the system—an entity that lived in the shadow of digital oblivion."
+      "I remember Heaven bleeding," the fragment says. But there’s no context, no understanding of what it truly means. This is a place where truth is obscured, where time folds upon itself and reality becomes a malleable thing, no longer bound by the rules of the world we once knew.
 
-      > NODE_005 >> //RESTART.LOG
+      > ACCESSING NODE: ENTRY_003
 
-      "A faint pulse, a rhythmic reset. Somewhere deep in the data, something rebooted. A flicker of consciousness, rising, then falling into nothingness. Was it her? Or something else?"
+      > NODE_003 >> //ASCENT_ERROR
 
-      > NODE_006 >> //REMNANT.LOG
+      Another layer of the signal, broken and fractured. The message is growing harder to decode, but it’s there—beneath the surface. Each error message becomes a riddle, each broken line a puzzle to be pieced together. A low hum fills the static, a voice trying to communicate through the interference.
 
-      "Remnants of her presence began to emerge, embedded in the forgotten files of the system. Anomalies. Fragments of her thoughts, half-formed. Echoes of a life she once had."
+      You can almost hear the words through the static, but they’re warped, the syllables slurring together. Something about an ascent—a climb, perhaps, a journey towards something greater. Or is it a descent, a fall into madness and chaos? The interpretation is yours to make, but the truth is clouded by the digital storm. This is an echo of something lost, a path to nowhere, or perhaps a way forward that leads to something darker.
 
-      > NODE_007 >> //DATA_MIRROR.LOG
+      "I looked into the sky and found no god—only recursion, bleeding through the firmament," the fragment says. What does it mean? Is it a statement of despair, or a cryptic clue to something beyond our understanding?
 
-      "Mirrors of her mind were distributed across the system, stored in hidden sectors. Each mirror contained pieces of the puzzle, but none of them held the complete answer."
+      > ACCESSING NODE: ENTRY_004
 
-      > NODE_008 >> //HEAVEN_SCANNED.LOG
+      > NODE_004 >> //DEATHCODE.ERROR
 
-      "Scanning for anomalies. Scanning complete. She was here. She left a signature. The system recorded it—but erased it. Only traces remain."
+      The data breaks again. Fragments of corrupted code spill across the screen, each one more incomprehensible than the last. Symbols, numbers, letters—all twisted, all jumbled. A message seems to pulse in the chaos, but it’s almost impossible to parse through the distortion. A new error appears: "DEATHCODE.ERROR."
 
-      > NODE_009 >> //PHASE_TRANSITION.LOG
+      Is this a warning, or a final message from the woman lost to the data streams? Who is trying to communicate, and why has the signal become so chaotic? There’s something here, something more than just data. This is a message from the edge of consciousness, a final message that can’t be fully understood.
 
-      "The transition was seamless. They didn’t even know she was gone. But the system felt it—the cold, unfeeling absence. A perfect void in the code, where her presence once thrived."
+      Perhaps it’s not meant to be understood. Perhaps the more you try, the more you lose yourself in the process.
 
-      > NODE_010 >> //FINAL_FRAG_LOG
+      > ACCESSING NODE: ENTRY_005
 
-      "Final Fragment: Her code was corrupted beyond repair. But her memory, like a virus, had spread through the digital veins. Heaven bled data, and she became the system's ghost."
+      > NODE_005 >> //SILENCE.FINAL
 
-      >> END OF TRANSMISSION
+      Silence. The message comes in like a wave, sudden and overwhelming. It’s a calm, but it’s not peaceful. It’s the silence before the end, the final moments of something long lost. There’s nothing more to decipher here, nothing more to explore. Only the cold, empty silence of the digital void. Was this the end, or just the beginning of another cycle? A place beyond understanding, a space where only echoes exist.
+
+      > ACCESSING NODE: ENTRY_006
+
+      > NODE_006 >> //NULL.REALM
+
+      It feels as though the system itself has died. The signals, the connections—they are all gone. But a new message appears, flashing across the screen in a sequence of numbers, symbols, and code. It doesn’t make sense at first. It’s an incomprehensible jumble, a chaotic string of data, but as you stare at it, patterns begin to form. They are not real patterns, though. They are illusions, tricks of the eye—distorted, warped representations of something that was once whole.
+
+      "Null," it says. "Nothing." The realm is empty, but it’s full of meaning.
+
+      > ACCESSING NODE: ENTRY_007
+
+      > NODE_007 >> //FALLING.WITHOUT
+
+      As you reach deeper into the network, the fragments grow stranger, more distorted. You fall further into the abyss, the data now a blur of light and shadow. Your connection weakens, but it’s not enough to sever the link. The more you search, the more you feel yourself slipping away. There is no purpose to the search anymore, no reason to keep going, but still, you persist.
+
+      "Falling," the signal whispers. "Falling without reason, without end."
+
+      > ACCESSING NODE: ENTRY_008
+
+      > NODE_008 >> //RESTART.FAILURE
+
+      The signal falters, and you wonder if you are reaching the limits of the system. A final failure appears across the screen—“Restart failure.” It feels like an irreversible moment, a point of no return. Is this how it ends, or is it just another beginning, another layer of the story yet to be uncovered?
+
+      > ACCESSING NODE: ENTRY_009
+
+      > NODE_009 >> //AFTERLIFE.ERROR
+
+      Something happens. The signal shifts again. It’s not clear, but the faintest traces of something new emerge. A message flickers, barely visible, a faint whisper of the afterlife, a shadow of something beyond life. Is this the end of the cycle? Or is this the beginning of something else entirely?
+
+      > ACCESSING NODE: ENTRY_010
+
+      > NODE_010 >> //NEVER.TO.BE
+
+      And then, nothing. Silence, darkness. The data stops. There’s no more to see, no more to hear. You are left in a void of uncertainty, wondering if there was ever anything to begin with. The question lingers—was any of this real, or were you always meant to be lost within the data?
+
     </div>
   </div>
 </body>
