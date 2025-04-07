@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEAVEN BLEEDS DATA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: #00ff99;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 16px;
+      line-height: 1.5;
+      overflow: hidden;
+    }
+    #terminal {
+      width: 100vw;
+      height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+      white-space: pre-wrap;
+      overflow-y: scroll;
+    }
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 1em;
+      background: #00ff99;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      from, to { background: transparent }
+      50% { background: #00ff99; }
+    }
+    #input-line {
+      display: flex;
+    }
+    #input-line span {
+      margin-right: 10px;
+    }
+    #command-input {
+      background: transparent;
+      border: none;
+      color: #00ff99;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 16px;
+      outline: none;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal">
+    <div id="output">
+      > CONNECTING TO //HEAVEN
+
+      > SIGNAL LOST
+
+      > FRAGMENT RECOVERED:
+
+      "Her name was erased. Her mind remained. Heaven bled, and she became its memory leak."
+
+      > ACCESSING NODE: ENTRY_001
+    </div>
+    <div id="input-line">
+      <span>&gt;</span>
+      <input id="command-input" type="text" autofocus>
+    </div>
+  </div>
+  <script>
+    const output = document.getElementById('output');
+    const input = document.getElementById('command-input');
+
+    const responses = {
+      'Y': 'ACCESS GRANTED. REDIRECTING TO NODE_002...\n',
+      'ACCESS NODE_002': 'REDIRECTING...\n',
+      'N': 'SESSION TERMINATED. CONNECTION LOST.\n',
+    };
+
+    const redirects = {
+      'Y': 'node_002.html',
+      'ACCESS NODE_002': 'node_002.html'
+    };
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const command = input.value.trim().toUpperCase();
+        const line = document.createElement('div');
+        line.textContent = '> ' + input.value;
+        output.appendChild(line);
+        input.value = '';
+
+        const response = responses[command] || '>> ERROR 0x00F: UNRECOGNIZED COMMAND\n';
+        const responseLine = document.createElement('div');
+        responseLine.textContent = response;
+        output.appendChild(responseLine);
+        output.scrollTop = output.scrollHeight;
+
+        if (redirects[command]) {
+          setTimeout(() => {
+            window.location.href = redirects[command];
+          }, 2000);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
